@@ -1,7 +1,7 @@
 import * as React from 'React';
 import { Link } from 'react-router-dom';
 
-import { Profile } from './profileMenu/profile';
+import { Profile } from './profile';
 import { Search } from './search';
 import { Messages } from './messages';
 import { BoardTypes } from '../boardTypes';
@@ -22,7 +22,7 @@ export class Sidebar extends React.Component<any> {
             case(SecondaryPages.Message):
                 return (
                     <div className="secondaryMenu">
-                        <Messages />
+                        <Messages closeMenu = {this.closeSideBar} open={this.props.open}/>
                     </div>
                 )
             case(SecondaryPages.Profile):

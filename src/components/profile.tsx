@@ -1,6 +1,6 @@
 import * as React from 'React';
-import { SecondaryPages } from '../sidebar';
-import { BoardTypes } from '../../boardTypes';
+import { SecondaryPages } from './sidebar';
+import { BoardTypes } from '../boardTypes';
 import { Link } from 'react-router-dom';
 
 export interface ProfileProps {
