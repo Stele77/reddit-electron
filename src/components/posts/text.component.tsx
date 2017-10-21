@@ -6,7 +6,7 @@ export class TextPost extends React.Component<IPostProp> {
         super(props);
     }
 
-    render() {
+    render(): any {
         return <div className="text">TEXT COMPONENT</div>;
     }
 }

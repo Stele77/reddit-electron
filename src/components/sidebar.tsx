@@ -50,7 +50,7 @@ export class Sidebar extends React.Component<any> {
         if(this.state.isLoggedIn) {
         return  (<div>
                     <div className="sidebar">
-                        <Link to={"/board/" + BoardTypes.Top}>
+                        <Link to={"/board/" + BoardTypes.Subreddits + "/popular"}>
                             <span className="fa-stack fa-2x" onClick={this.closeSideBar}>
                                 <i className="fa fa-circle fa-stack-2x sidebar-main"></i>
                                 <i className="fa fa-reddit-alien fa-stack-1x"></i>
