@@ -5,13 +5,17 @@ export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
 
-        console.log(props);
+        console.log(props.data);
+    }
+
+    componentWillMount() {
+        let postData = this.props.data;
     }
     
     render() {
         return (
             <div className="post">
-                <TextPost/>
+                {this.props.data.domain}
             </div>
         );
     }

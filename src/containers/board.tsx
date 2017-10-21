@@ -1,45 +1,45 @@
 import * as React from 'React';
 import { Post } from '../components/posts/post.component';
 import axios from 'axios';
-import ReactList from 'react-list';
-var LazyLoading = require('react-list-lazy-load');
 
 export class Board extends React.Component {
-    posts: any[] = [];
+    public state: any = {
+        posts: []
+    };
 
     constructor(props: any) {
         super(props);
 
-        this.getPosts();
+        this.state = {
+            posts: []
+        };
+    }
+
+    componentWillMount() {
+        this.getPosts().then(posts => {
+            this.setState({posts: posts});
+        });
     }
 
     getPosts() {
         return axios.get('http://www.reddit.com/r/all/hot.json').then(res => {
-            res.data.data.children.forEach((post: any) => {
-                console.log(post);
-                this.posts.push(post);
-            });
-            return this.posts;
+            return res.data.data.children;
         });
     }
 
+    renderPost(post: any) {
+        return <Post data={post.data}/>;
+    }
+
     render() {
+        const { posts } = this.state;
+        if (this.state.posts) {
+            return <div>{this.state.posts.map(this.renderPost)}</div>
+        }
         return (
             <div>
                 <h1>A Board Component</h1>
-                <LazyLoading
-                    length={this.posts.length}
-                    items={this.posts}
-                    onRequestPage={1}
-                >
-                    <ReactList
-                        itemRenderer={(idx, key) => (
-                            <div key={key}>{this.posts[idx]}</div>
-                        )}
-                        type="uniform"
-                        length={this.posts.length}
-                    />
-                </LazyLoading>
+                <div>Loading...</div>
             </div>
         )
     }
