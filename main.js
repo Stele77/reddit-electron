@@ -14,7 +14,6 @@ app.on('ready', function() {
   const e = express();
   e.get('/authorize_callback', (req, res) => {
       appToken = req.param('code');
-      localStorage.setItem('authToken', appToken);
       res.emit("close");
 
   })

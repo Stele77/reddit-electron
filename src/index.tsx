@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { History } from 'history';
 import './index.css';
 
+let token = 'A_gk7w4CygWHbJTf_yOsPGo57YE';
+localStorage.setItem("AppToken", token);
 ReactDOM.render(
   <Router>
       <Route path="/" component={App}/>
