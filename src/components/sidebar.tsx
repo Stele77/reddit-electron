@@ -6,10 +6,11 @@ import { Search } from './search';
 import { Messages } from './messages';
 
 export class Sidebar extends React.Component<any> {
-    state: { open: SecondaryPages } = { open: SecondaryPages.None };
+    state: { open: SecondaryPages, isLoggedIn: boolean} = { open: SecondaryPages.None, isLoggedIn: false};
 
     constructor(props: any) {
         super(props);
+        this.state.isLoggedIn = (localStorage.getItem("AppToken") != null);
     }
 
     showSideBar(): any {
@@ -37,6 +38,7 @@ export class Sidebar extends React.Component<any> {
     }
 
     render() {
+        if(this.state.isLoggedIn) {
         return  (<div>
                     <div className="sidebar">
                         <Link to="/home">
@@ -61,6 +63,9 @@ export class Sidebar extends React.Component<any> {
                     </div>
                     {this.showSideBar()}
                 </div>)
+        } else {
+            return null;
+        }
     }
 }
 
