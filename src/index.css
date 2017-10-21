@@ -3,3 +3,16 @@
     width: 640px; 
     height: 480px
 }
+
+.sidebar {
+    width: 65px;
+    height: 100vh;
+    float: left;
+    background-color: crimson;
+}
+
+.container {
+    width: calc(100% - 65px);
+    float: right;
+    padding-left: 20px;
+}
