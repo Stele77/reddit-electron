@@ -9,33 +9,32 @@ export interface BoardProps {
 }
 
 export class Board extends React.Component<BoardProps> {
-    public state: any;
+    public state: { data: any[], isLoading: boolean, dateCount: number } ;
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer BGUPj8n_VKXyocS-8yg8lBUaOXw";
+        axios.defaults.headers.common['Authorization'] = "Bearer 6T-tLInvpwaaepmQjSgQabqMYVk";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     componentWillMount() {
-        this.getData().then(data => {
-            this.setState({data: data});
+        this.setState({isLoading: true, data: [], dataCount: 0})
+        this.getData(Number(this.props.match.params.boardType)).then(data => {
+            this.setState({data: data, isLoading: false, dataCount: data.count});
         });
     }
 
-    shouldComponentUpdate(nextProps: BoardProps, nextState: any) {
-        return this.props.match.params.boardType != nextProps.match.params.boardType;
+    componentWillReceiveProps(nextProps: BoardProps) {
+        if(nextProps.match.params.boardType != this.props.match.params.boardType) {
+            this.setState({isLoading: true, data: [], dataCount: 0})
+            this.getData(Number(nextProps.match.params.boardType)).then(data => {
+                this.setState({data: data, isLoading: false, dataCount: data.count});
+            });
+        }
     }
 
-    componentWillUpdate() {
-        this.setState({data: null});
-        this.getData().then(data => {
-            this.setState({data: data});
-        });
-    }
-
-    getData() {
-        return axios.get(BoardTypeObjects[Number(this.props.match.params.boardType)].URL).then(res => {
+    getData(boardType: BoardTypes) {
+        return axios.get(BoardTypeObjects[boardType].URL).then(res => {
             return res.data.data.children;
         });
     }
@@ -45,10 +44,9 @@ export class Board extends React.Component<BoardProps> {
     }
 
     render() {
-        if (this.state) {
-            if(!!this.state.data && this.state.data.length == 0) {
+        if (this.state && !this.state.isLoading) {
+            if(this.state.data.length == 0) {
                 return (<div>
-                    <h1>A Board Component</h1>
                     <div>We did not find any data matching your request</div>
                 </div>)
             } else {
@@ -61,7 +59,6 @@ export class Board extends React.Component<BoardProps> {
         } else {
             return (
                 <div className="board">
-                    <h1>A Board Component</h1>
                     <div>Loading...</div>
                 </div>
             )

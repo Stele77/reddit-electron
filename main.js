@@ -2,7 +2,6 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 const express = require('express'); //your express app
-require('electron-reload')(__dirname);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -36,7 +35,7 @@ app.on('ready', function() {
     height: 720,
     autoHideMenuBar: true,
     useContentSize: true,
-    resizable: false,
+    resizable: true,
   });
   mainWindow.webContents.openDevTools()
   mainWindow.loadURL('http://localhost:5000/');

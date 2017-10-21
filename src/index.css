@@ -67,6 +67,14 @@
     display: flex;
 }
 
+.pic > img {
+    max-width: 100%;
+}
+
+.vote-block {
+    font-size: smaller;
+}
+
 .post-options > a {
     color: white;
 }
