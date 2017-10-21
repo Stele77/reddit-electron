@@ -18,7 +18,6 @@ export class Board extends React.Component<BoardProps> {
     }
 
     componentWillMount() {
-        console.log(this.props.match);
         this.setState({isLoading: true, data: [], dataCount: 0})
         this.getData(Number(this.props.match.params.boardType), this.props.match.params.subreddit).then(data => {
             this.setState({data: data, isLoading: false, dataCount: data.count});
