@@ -4,7 +4,7 @@ import { Sidebar } from '../components/sidebar';
 import { Route } from 'react-router-dom';
 
 import { Board } from './board';
-import { Login } from './login';
+// import { Login } from './login';
 
 export class App extends React.Component {
     render() {
@@ -14,7 +14,7 @@ export class App extends React.Component {
                 <div className="flex-container">
                     <Header />
                     <Route path="/board/:boardType" component={Board}/>
-                    <Route path="/Login" component={Login}/>
+                    {/* <Route path="/Login" component={Login}/> */}
                 </div>
             </div>
         )

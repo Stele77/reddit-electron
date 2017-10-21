@@ -19,7 +19,17 @@ export class Board extends React.Component<BoardProps> {
 
     componentWillMount() {
         this.getData().then(data => {
-            console.log(data);
+            this.setState({data: data});
+        });
+    }
+
+    shouldComponentUpdate(nextProps: BoardProps, nextState: any) {
+        console.log(nextProps)
+        return this.props.match.params.boardType != nextProps.match.params.boardType;
+    }
+
+    componentWillUpdate() {
+        this.getData().then(data => {
             this.setState({data: data});
         });
     }
@@ -37,24 +47,24 @@ export class Board extends React.Component<BoardProps> {
     render() {
         if (this.state) {
             if(!!this.state.data && this.state.data.length == 0) {
-                <div>
+                return (<div>
                     <h1>A Board Component</h1>
                     <div>We did not find any data matching your request</div>
-                </div>
+                </div>)
             } else {
                 switch(this.props.boardType)
                 {
-                    case BoardTypes.Saved:
-                    case BoardTypes.Top:
+                    default:
                     return <div className="board">{this.state.data.map(this.renderPost)}</div>
                 }
             }
-        }
-        return (
+        } else {
+            return (
                 <div className="board">
                     <h1>A Board Component</h1>
                     <div>Loading...</div>
                 </div>
-        )
+            )
+        }
     }
 }
