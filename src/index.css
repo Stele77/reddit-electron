@@ -11,6 +11,12 @@
     background-color: darkred;
 }
 
+.secondMenu {
+    width: 200px;
+    float: left;
+    padding-left: -20px;
+}
+
 .container {
     width: calc(100% - 65px);
     float: right;
