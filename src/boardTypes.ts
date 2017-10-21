@@ -6,7 +6,11 @@ export enum BoardTypes {
     MyPosts,
     MyComments,
     Upvoted,
-    Hidden
+    Hidden,
+    Inbox,
+    CommentReplies,
+    PostReplies,
+    UsernameMentions
 }
 interface BoardTypeObject {
     URL: string,
@@ -25,11 +29,11 @@ export const BoardTypeObjects: BoardTypeObject[] = [{
     route: "/board/" + BoardTypes.Saved
 }, {
     URL: authURL + "user/" + username + "/submitted",
-    FriendlyName: "MyPosts",
+    FriendlyName: "My Posts",
     route: "/board/" + BoardTypes.MyPosts
 }, {
     URL: authURL + "user/" + username + "/comments",
-    FriendlyName: "MyComments",
+    FriendlyName: "My Comments",
     route: "/board/" + BoardTypes.MyComments
 }, {
     URL: authURL + "user/" + username + "/upvoted",
@@ -39,5 +43,21 @@ export const BoardTypeObjects: BoardTypeObject[] = [{
     URL: authURL + "user/" + username + "/hidden",
     FriendlyName: "Hidden",
     route: "/board/" + BoardTypes.Hidden
+}, {
+    URL: authURL + "message/messages",
+    FriendlyName: "Inbox",
+    route: "/board/" + BoardTypes.Inbox
+}, {
+    URL: authURL + "message/comments",
+    FriendlyName: "Comment Replies",
+    route: "/board/" + BoardTypes.CommentReplies
+}, {
+    URL: authURL + "message/selfreply",
+    FriendlyName: "Post Replies",
+    route: "/board/" + BoardTypes.PostReplies
+}, {
+    URL: authURL + "message/mentions",
+    FriendlyName: "Username Mentions",
+    route: "/board/" + BoardTypes.UsernameMentions
 }
 ];
