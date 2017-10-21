@@ -44,8 +44,7 @@ export class Board extends React.Component<BoardProps> {
             } else {
                 switch(this.props.boardType)
                 {
-                    case BoardTypes.Saved:
-                    case BoardTypes.Top:
+                    default:
                     return <div className="board">{this.state.data.map(this.renderPost)}</div>
                 }
             }

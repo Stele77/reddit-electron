@@ -2,12 +2,12 @@ const nonAuthURL = 'https://www.reddit.com/';
 const authURL = 'https://oauth.reddit.com/';
 export enum BoardTypes {
     Top,
-    Subreddits,
     Saved,
     MyPosts,
     MyComments,
     Upvoted,
-    Friends
+    Friends,
+    Hidden
 }
 interface BoardTypeObject {
     URL: string,
@@ -24,5 +24,20 @@ export const BoardTypeObjects: BoardTypeObject[] = [{
 }, {
     URL: authURL + "user/" + username + "/saved",
     FriendlyName: "Saved"
+}, {
+    URL: authURL + "user/" + username + "/submitted",
+    FriendlyName: "MyPosts"
+}, {
+    URL: authURL + "user/" + username + "/comments",
+    FriendlyName: "MyComments"
+}, {
+    URL: authURL + "user/" + username + "/upvoted",
+    FriendlyName: "Upvoted"
+}, {
+    URL: authURL + "prefs/friends",
+    FriendlyName: "Friends"
+}, {
+    URL: authURL + "user/" + username + "/hidden",
+    FriendlyName: "Hidden"
 }
 ];
