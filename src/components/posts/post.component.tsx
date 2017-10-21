@@ -3,10 +3,13 @@ import { TextPost } from './text.component';
 import { PostData } from './post.model';
 import { LinkPost } from './link.component';
 import { PicturePost } from './pic.component';
+import axios from "axios";
 
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
+        axios.defaults.headers.common['Authorization'] = "Bearer BGUPj8n_VKXyocS-8yg8lBUaOXw";
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     renderPost() {
@@ -24,11 +27,11 @@ export class Post extends React.Component<any> {
     }
 
     upVote() {
-
+        axios.post('https://oauth.reddit.com/api/vote/-1');
     }
 
     downVote() {
-        
+
     }
     
     render() {
