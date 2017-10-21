@@ -35,7 +35,7 @@ app.on('ready', function() {
     height: 720,
     autoHideMenuBar: true,
     useContentSize: true,
-    resizable: false,
+    resizable: true,
   });
   mainWindow.webContents.openDevTools()
   mainWindow.loadURL('http://localhost:5000/');

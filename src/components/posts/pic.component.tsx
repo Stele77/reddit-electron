@@ -8,8 +8,8 @@ export class PicturePost extends React.Component<IPostProp> {
 
     render() {
         return (
-        <div className="pic">PICTURE COMPONENT
-            <img src={this.props.post.thumbnail}></img>
+        <div className="pic">
+            <img src={this.props.post.url}></img>
         </div>
         );
     }
