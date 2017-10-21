@@ -13,6 +13,9 @@ export class Header extends React.Component {
     }
 
     render() {
-        return <div className="container"><h1 className="title">Reddit Wrapper</h1><p className="subtitle">An Electron wrapper for Reddit!</p><button className='button' onClick={() => this.ToggleShowLogin()}>Login to Reddit</button><Login /></div>;
+        return (
+            <div className="header">
+                <h3 className="text-center">A Subreddit Name</h3>
+            </div>);
     }
 }

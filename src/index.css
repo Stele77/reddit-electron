@@ -16,3 +16,9 @@
     float: right;
     padding-left: 20px;
 }
+
+.header {
+    height: 40px;
+    width: calc(100% - 65px);
+    float: right;
+}
