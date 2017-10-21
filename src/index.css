@@ -8,11 +8,19 @@
     width: 65px;
     height: 100vh;
     float: left;
-    background-color: crimson;
+    background-color: darkred;
 }
 
 .container {
     width: calc(100% - 65px);
     float: right;
     padding-left: 20px;
+}
+
+.sidebar-main {
+    color: gold; 
+}
+
+.sidebar-secondary {
+    color: lightgrey;
 }
