@@ -6,35 +6,38 @@ export enum BoardTypes {
     MyPosts,
     MyComments,
     Upvoted,
-    Friends,
     Hidden
 }
 interface BoardTypeObject {
     URL: string,
-    FriendlyName: string
+    FriendlyName: string,
+    route: string
 }
 const username = "PsychedelicL10n";
 
 export const BoardTypeObjects: BoardTypeObject[] = [{
     URL: authURL + "hot",
-    FriendlyName: "Top"
+    FriendlyName: "Top",
+    route: "/board/" + BoardTypes.Top
 }, {
     URL: authURL + "user/" + username + "/saved",
-    FriendlyName: "Saved"
+    FriendlyName: "Saved",
+    route: "/board/" + BoardTypes.Saved
 }, {
     URL: authURL + "user/" + username + "/submitted",
-    FriendlyName: "MyPosts"
+    FriendlyName: "MyPosts",
+    route: "/board/" + BoardTypes.MyPosts
 }, {
     URL: authURL + "user/" + username + "/comments",
-    FriendlyName: "MyComments"
+    FriendlyName: "MyComments",
+    route: "/board/" + BoardTypes.MyComments
 }, {
     URL: authURL + "user/" + username + "/upvoted",
-    FriendlyName: "Upvoted"
-}, {
-    URL: authURL + "prefs/friends",
-    FriendlyName: "Friends"
+    FriendlyName: "Upvoted",
+    route: "/board/" + BoardTypes.Upvoted
 }, {
     URL: authURL + "user/" + username + "/hidden",
-    FriendlyName: "Hidden"
+    FriendlyName: "Hidden",
+    route: "/board/" + BoardTypes.Hidden
 }
 ];
