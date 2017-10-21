@@ -34,7 +34,7 @@ export class Sidebar extends React.Component<any> {
             case(SecondaryPages.Search):
                 return (
                     <div className="secondaryMenu">
-                        <Search />
+                        <Search closeMenu = {this.closeSideBar} open={this.props.open}/>
                     </div>
                 )
             default:

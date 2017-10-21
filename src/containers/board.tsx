@@ -13,7 +13,7 @@ export class Board extends React.Component<BoardProps> {
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer 2Qch7ISAPoQnZikrs67Mchjzpcw";
+        axios.defaults.headers.common['Authorization'] = "Bearer -LurnDc_nLn8lhmUU3qUjODnFNA";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
@@ -34,9 +34,17 @@ export class Board extends React.Component<BoardProps> {
     }
 
     getData(boardType: BoardTypes) {
-        return axios.get(BoardTypeObjects[boardType].URL).then(res => {
-            return res.data.data.children;
-        });
+        switch(this.props.boardType) {
+
+            case BoardTypes.Subreddits:
+                return axios.get(BoardTypeObjects[boardType].URL + "/" + this.props.match.params.subreddit).then(res => {
+                    return res.data.data.children;
+                });
+            default:
+                return axios.get(BoardTypeObjects[boardType].URL).then(res => {
+                    return res.data.data.children;
+                });
+        }
     }
 
     renderPost(post: any) {

@@ -10,7 +10,8 @@ export enum BoardTypes {
     Inbox,
     CommentReplies,
     PostReplies,
-    UsernameMentions
+    UsernameMentions,
+    Subreddits
 }
 interface BoardTypeObject {
     URL: string,
@@ -59,5 +60,9 @@ export const BoardTypeObjects: BoardTypeObject[] = [{
     URL: authURL + "message/mentions",
     FriendlyName: "Username Mentions",
     route: "/board/" + BoardTypes.UsernameMentions
+}, {
+    URL: authURL + "by_id/",
+    FriendlyName: "Subreddits",
+    route: "/board/" + BoardTypes.Subreddits + "/:subreddit"
 }
 ];
