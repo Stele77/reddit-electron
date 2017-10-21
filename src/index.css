@@ -8,7 +8,7 @@
     width: 65px;
     height: 100vh;
     float: left;
-    background-color: crimson;
+    background-color: darkred;
 }
 
 .container {
@@ -17,8 +17,17 @@
     padding-left: 20px;
 }
 
+
 .header {
     height: 40px;
     width: calc(100% - 65px);
     float: right;
+}
+
+.sidebar-main {
+    color: gold; 
+}
+
+.sidebar-secondary {
+    color: lightgrey;
 }
