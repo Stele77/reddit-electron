@@ -1,5 +1,5 @@
 import * as React from 'React';
-import { Post } from './posts/post.component';
+import { Post } from '../components/posts/post.component';
 import axios from 'axios';
 import ReactList from 'react-list';
 var LazyLoading = require('react-list-lazy-load');
