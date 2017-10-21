@@ -39,7 +39,7 @@ export class Search extends React.Component<SearchProps> {
                 <input type="submit" value="Submit"/>
             </form>
             <div onClick={this.props.closeMenu}>{   this.state.searchResults.map((x: any) => (
-                <Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.name}>
+                <Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.display_name}>
                     <div>{x.data.display_name_prefixed}</div>   
                 </Link>
             ))

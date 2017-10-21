@@ -61,7 +61,7 @@ export const BoardTypeObjects: BoardTypeObject[] = [{
     FriendlyName: "Username Mentions",
     route: "/board/" + BoardTypes.UsernameMentions
 }, {
-    URL: authURL + "by_id/",
+    URL: authURL + "r/",
     FriendlyName: "Subreddits",
     route: "/board/" + BoardTypes.Subreddits + "/:subreddit"
 }

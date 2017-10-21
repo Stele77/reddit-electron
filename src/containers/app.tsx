@@ -14,7 +14,7 @@ export class App extends React.Component<any> {
                 <Sidebar />
                 <div className="flex-container">
                     <Header location = {location}/>
-                    <Route path="/board/:boardType/:subreddit" component={Board}/>
+                    <Route path="/board/:boardType/:subreddit?" component={Board}/>
                     {/* <Route path="/Login" component={Login}/> */}
                 </div>
             </div>
