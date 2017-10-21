@@ -8,7 +8,7 @@ import axios from "axios";
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer BGUPj8n_VKXyocS-8yg8lBUaOXw";
+        axios.defaults.headers.common['Authorization'] = "Bearer 6T-tLInvpwaaepmQjSgQabqMYVk";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
