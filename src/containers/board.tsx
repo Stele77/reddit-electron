@@ -14,7 +14,7 @@ export class Board extends React.Component {
     }
 
     getPosts() {
-        return axios.get('http://www.reddit.com/r/all/hot.json').then(res => {
+        return axios.get('http://www.reddit.com/r/all/hot.json').then((res: any) => {
             res.data.data.children.forEach((post: any) => {
                 console.log(post);
                 this.posts.push(post);
