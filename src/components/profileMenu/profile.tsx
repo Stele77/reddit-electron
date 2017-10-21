@@ -12,11 +12,6 @@ export class Profile extends React.Component<ProfileProps> {
 
     render() {
         return (<div className='profile'>
-                    <span className="fa-stack fa-2x">
-                    <i className="fa fa-circle fa-stack-2x"></i>
-                    <i className="fa fa-history fa-stack-1x fa-inverted"></i>
-                    </span>
-                    History <br />
                     <Link to={'/board/' + BoardTypes.Saved} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
                             <i className="fa fa-circle fa-stack-2x"></i>
@@ -44,13 +39,6 @@ export class Profile extends React.Component<ProfileProps> {
                          <i className="fa fa-reddit-thumbs-up fa-stack-1x fa-inverted"></i>
                          </span>
                          Upvoted <br />
-                    </Link>
-                    <Link to={'/board/' + BoardTypes.Friends} onClick={this.props.closeMenu}>
-                        <span className="fa-stack fa-2x">
-                            <i className="fa fa-circle fa-stack-2x"></i>
-                            <i className="fa fa-users fa-stack-1x fa-inverted"></i>
-                        </span>
-                        Friends <br />
                     </Link>
                     <Link to={'/board/' + BoardTypes.Hidden} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
