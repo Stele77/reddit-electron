@@ -14,7 +14,8 @@ app.on('ready', function() {
   const e = express();
   e.get('/authorize_callback', (req, res) => {
       appToken = req.param('code');
-      res.redirect('/');
+      res.emit("close");
+
   })
   e.listen(5000, () => {
       console.log('listening on port 5000')
