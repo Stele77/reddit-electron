@@ -24,7 +24,6 @@ export class Board extends React.Component<BoardProps> {
     }
 
     shouldComponentUpdate(nextProps: BoardProps, nextState: any) {
-        console.log(nextProps)
         return this.props.match.params.boardType != nextProps.match.params.boardType;
     }
 
