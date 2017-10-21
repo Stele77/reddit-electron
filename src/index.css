@@ -23,12 +23,52 @@
     display: flex;
     flex-direction: column;
     max-height: 100vh;
+    overflow: auto;
 }
 
 .post {
-    width: 20%;
-    border: 1px solid darkslategrey;
+    width: 45%;
+    border: 1px solid #777;
+    background: #333;
+    color: white;
     border-radius: 4px;
+    box-shadow: 4px 4px 9px black;
+    margin: 5px;
+}
+
+.title-block {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-bottom: 1px solid #777;
+}
+
+.subreddit-thumb {
+    margin-right: 3px;
+}
+
+.subreddit-info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    font-size: smaller;
+}
+
+.post-options {
+    padding-right: 5px;
+}
+
+.post-block {
+    display: flex;
+    padding: 10px 10px 0px 10px;
+}
+
+.link {
+    display: flex;
+}
+
+.post-options > a {
+    color: white;
 }
 
 
@@ -41,6 +81,13 @@
     text-align: center;
     font-size: 20px;
     background-color: lightgrey;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #dddddd;
 }
 
 .login-button {

@@ -1,4 +1,4 @@
-export interface Post {
+export interface PostData {
     approved_at_utc?: any;
     approved_by: any;
     archived: boolean;
@@ -69,4 +69,8 @@ export interface Post {
     view_count?: number;
     visited: boolean;
     whitelist_status: string;
+}
+
+export interface IPostProp {
+    post: PostData;
 }

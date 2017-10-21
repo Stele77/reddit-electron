@@ -34,10 +34,14 @@ export class Board extends React.Component {
     render() {
         const { posts } = this.state;
         if (this.state.posts) {
-            return <div>{this.state.posts.map(this.renderPost)}</div>
+            return (
+                <div className="board">
+                    {this.state.posts.map(this.renderPost)}
+                </div>
+            )
         }
         return (
-            <div>
+            <div className="board">
                 <h1>A Board Component</h1>
                 <div>Loading...</div>
             </div>
