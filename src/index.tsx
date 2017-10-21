@@ -2,11 +2,15 @@ import * as React from 'React';
 import * as ReactDOM from "react-dom";
 
 import { Header } from './components/header';
-import { Login } from './components/login';
+import { Sidebar } from './components/sidebar';
 import './index.css';
 
 ReactDOM.render(
-    <Header><Login /></Header>
+    <div>
+        <Header />
+        <Sidebar />
+    </div>
+
     ,
-    document.getElementById("header")
+    document.getElementById("root")
 )
