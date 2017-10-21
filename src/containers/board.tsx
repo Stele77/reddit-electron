@@ -13,7 +13,7 @@ export class Board extends React.Component<BoardProps> {
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer LQHiNUEtX-0nA1ZQouSDboF5jPo";
+        axios.defaults.headers.common['Authorization'] = "Bearer BGUPj8n_VKXyocS-8yg8lBUaOXw";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
@@ -23,15 +23,16 @@ export class Board extends React.Component<BoardProps> {
         });
     }
 
-    shouldComponentUpdate(nextProps: BoardProps, nextState: any) {
-        return this.props.match.params.boardType != nextProps.match.params.boardType;
+    componentWillUpdate(nextProps: BoardProps, nextState: any) {
     }
 
-    componentWillUpdate() {
-        this.setState({data: null});
-        this.getData().then(data => {
-            this.setState({data: data});
-        });
+    componentWillReceiveProps(nextProps: BoardProps) {
+        if(nextProps.match.params.boardType != this.props.match.params.boardType) {
+            this.setState({data: []})
+            this.getData().then(data => {
+                this.setState({data: data});
+            });
+        }
     }
 
     getData() {
@@ -45,10 +46,9 @@ export class Board extends React.Component<BoardProps> {
     }
 
     render() {
-        if (this.state) {
-            if(!!this.state.data && this.state.data.length == 0) {
+        if (this.state && this.state.data) {
+            if(this.state.data.length == 0) {
                 return (<div>
-                    <h1>A Board Component</h1>
                     <div>We did not find any data matching your request</div>
                 </div>)
             } else {
@@ -61,7 +61,6 @@ export class Board extends React.Component<BoardProps> {
         } else {
             return (
                 <div className="board">
-                    <h1>A Board Component</h1>
                     <div>Loading...</div>
                 </div>
             )

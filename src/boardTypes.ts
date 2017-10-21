@@ -19,9 +19,6 @@ export const BoardTypeObjects: BoardTypeObject[] = [{
     URL: authURL + "hot",
     FriendlyName: "Top"
 }, {
-    URL: authURL, 
-    FriendlyName: ""
-}, {
     URL: authURL + "user/" + username + "/saved",
     FriendlyName: "Saved"
 }, {
