@@ -14,6 +14,7 @@ app.on('ready', function() {
   const e = express();
   e.get('/authorize_callback', (req, res) => {
       appToken = req.param('code');
+      console.log(appToken);
       res.emit("close");
 
   })

@@ -1,28 +1,42 @@
 import * as React from 'React';
 import { Post } from '../components/posts/post.component';
 import axios from 'axios';
+import { BoardTypes, BoardTypeObjects } from '../boardTypes';
 
-export class Board extends React.Component {
-    public state: any = {
-        posts: []
-    };
+export interface BoardProps {
+    boardType: BoardTypes;
+    match: any;
+}
+
+export class Board extends React.Component<BoardProps> {
+    public state: any;
 
     constructor(props: any) {
         super(props);
-
-        this.state = {
-            posts: []
-        };
+        axios.defaults.headers.common['Authorization'] = "Bearer BGUPj8n_VKXyocS-8yg8lBUaOXw";
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     componentWillMount() {
-        this.getPosts().then(posts => {
-            this.setState({posts: posts});
+        this.getData().then(data => {
+            this.setState({data: data});
         });
     }
 
-    getPosts() {
-        return axios.get('http://www.reddit.com/r/all/hot.json').then(res => {
+    componentWillUpdate(nextProps: BoardProps, nextState: any) {
+    }
+
+    componentWillReceiveProps(nextProps: BoardProps) {
+        if(nextProps.match.params.boardType != this.props.match.params.boardType) {
+            this.setState({data: []})
+            this.getData().then(data => {
+                this.setState({data: data});
+            });
+        }
+    }
+
+    getData() {
+        return axios.get(BoardTypeObjects[Number(this.props.match.params.boardType)].URL).then(res => {
             return res.data.data.children;
         });
     }
@@ -32,19 +46,24 @@ export class Board extends React.Component {
     }
 
     render() {
-        const { posts } = this.state;
-        if (this.state.posts) {
+        if (this.state && this.state.data) {
+            if(this.state.data.length == 0) {
+                return (<div>
+                    <div>We did not find any data matching your request</div>
+                </div>)
+            } else {
+                switch(this.props.boardType)
+                {
+                    default:
+                    return <div className="board">{this.state.data.map(this.renderPost)}</div>
+                }
+            }
+        } else {
             return (
                 <div className="board">
-                    {this.state.posts.map(this.renderPost)}
+                    <div>Loading...</div>
                 </div>
             )
         }
-        return (
-            <div className="board">
-                <h1>A Board Component</h1>
-                <div>Loading...</div>
-            </div>
-        )
     }
 }
