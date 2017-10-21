@@ -3,8 +3,6 @@ import * as ReactDOM from "react-dom";
 import { App } from './containers/App';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { History } from 'history';
-import { Board } from './containers/board';
-import { Login } from './containers/login';
 import './index.css';
 
 ReactDOM.render(
