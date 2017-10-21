@@ -28,11 +28,11 @@ export class Post extends React.Component<any> {
     }
 
     upVote() {
-        axios.post('https://oauth.reddit.com/api/vote/-1');
+        axios.post('https://oauth.reddit.com/r/' + this.props.data.subreddit + '/' + this.props.data.id + '/1');
     }
 
     downVote() {
-
+        axios.post('https://oauth.reddit.com/api/vote/-1');
     }
     
     render() {
