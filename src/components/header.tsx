@@ -19,7 +19,7 @@ export class Header extends React.Component {
             <div className="header">
                 <div className="subreddit-name">
                     A Subreddit Name
-                    <span className="login-button pull-right"><Link to="/Login">Login</Link></span>
+                    <span className="pull-right"><Link to="/Login" className="login-button">Login</Link></span>
                 </div>
             </div>);
     }

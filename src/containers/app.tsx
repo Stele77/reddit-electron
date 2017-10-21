@@ -11,8 +11,8 @@ export class App extends React.Component {
         return (
             <div>
                 <Sidebar />
-                <Header />
-                <div className="container">
+                <div className="flex-container">
+                    <Header />
                     <Route path="/home" component={Board}/>
                     <Route path="/Login" component={Login}/>
                 </div>

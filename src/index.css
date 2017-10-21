@@ -1,7 +1,5 @@
 .webViewContainer {
-    display: inline-flex; 
-    width: 640px; 
-    height: 480px
+    height: 100vh;
 }
 
 .sidebar {
@@ -11,22 +9,22 @@
     background-color: darkred;
 }
 
-.secondMenu {
+.secondaryMenu {
     width: 200px;
     float: left;
-    padding-left: -20px;
+    height: 100vh;
+    background-color: darkred;
 }
 
-.container {
-    width: calc(100% - 65px);
-    float: right;
-    padding-left: 20px;
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
 }
 
 
 .header {
     height: 40px;
-    width: calc(100% - 65px);
     float: right;
 }
 
@@ -36,10 +34,20 @@
     background-color: lightgrey;
 }
 
+.login-button {
+    color: #333;
+    text-decoration: none;
+}
+
 .sidebar-main {
     color: gold; 
 }
 
 .sidebar-secondary {
     color: lightgrey;
+}
+
+body {
+    overflow: hidden;
+    max-height: 100vh;
 }
