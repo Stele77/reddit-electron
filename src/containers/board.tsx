@@ -1,28 +1,31 @@
 import * as React from 'React';
 import { Post } from '../components/posts/post.component';
 import axios from 'axios';
+import { BoardTypes, BoardTypeObjects } from '../boardTypes';
 
-export class Board extends React.Component {
-    public state: any = {
-        posts: []
-    };
+export interface BoardProps {
+    boardType: BoardTypes;
+    match: any;
+}
+
+export class Board extends React.Component<BoardProps> {
+    public state: any;
 
     constructor(props: any) {
         super(props);
-
-        this.state = {
-            posts: []
-        };
+        axios.defaults.headers.common['Authorization'] = "Bearer mVFGmVNAZAYEide9skfbb8ojNE8";
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     componentWillMount() {
-        this.getPosts().then(posts => {
-            this.setState({posts: posts});
+        this.getData().then(data => {
+            console.log(data);
+            this.setState({data: data});
         });
     }
 
-    getPosts() {
-        return axios.get('http://www.reddit.com/r/all/hot.json').then(res => {
+    getData() {
+        return axios.get(BoardTypeObjects[Number(this.props.match.params.boardType)].URL).then(res => {
             return res.data.data.children;
         });
     }
@@ -32,15 +35,26 @@ export class Board extends React.Component {
     }
 
     render() {
-        const { posts } = this.state;
-        if (this.state.posts) {
-            return <div>{this.state.posts.map(this.renderPost)}</div>
+        if (this.state) {
+            if(!!this.state.data && this.state.data.length == 0) {
+                <div>
+                    <h1>A Board Component</h1>
+                    <div>We did not find any data matching your request</div>
+                </div>
+            } else {
+                switch(this.props.boardType)
+                {
+                    case BoardTypes.Saved:
+                    case BoardTypes.Top:
+                    return <div>{this.state.data.map(this.renderPost)}</div>
+                }
+            }
         }
         return (
-            <div>
-                <h1>A Board Component</h1>
-                <div>Loading...</div>
-            </div>
+                <div>
+                    <h1>A Board Component</h1>
+                    <div>Loading...</div>
+                </div>
         )
     }
 }

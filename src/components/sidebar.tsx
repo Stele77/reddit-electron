@@ -1,7 +1,7 @@
 import * as React from 'React';
 import { Link } from 'react-router-dom';
 
-import { Profile } from './profile';
+import { Profile } from './profileMenu/profile';
 import { Search } from './search';
 import { Messages } from './messages';
 
@@ -10,31 +10,39 @@ export class Sidebar extends React.Component<any> {
 
     constructor(props: any) {
         super(props);
-        this.state.isLoggedIn = (localStorage.getItem("AppToken") != null);
+        this.state.isLoggedIn = true;
+
+        this.closeSideBar = this.closeSideBar.bind(this);
     }
 
     showSideBar(): any {
-        if(this.state.open === SecondaryPages.Message) {
-            return (
-                <div className="secondaryMenu">
-                    <Messages />
-                </div>
-            )
-        } else if(this.state.open === SecondaryPages.Profile) {
-            return (
-                <div className="secondaryMenu">
-                    <Profile />
-                </div>
-            )
-        } else if(this.state.open === SecondaryPages.Search) {
-            return (
-                <div className="secondaryMenu">
-                    <Search />
-                </div>
-            )
-        }
+        switch(this.state.open) {
 
-        return null
+            case(SecondaryPages.Message):
+                return (
+                    <div className="secondaryMenu">
+                        <Messages />
+                    </div>
+                )
+            case(SecondaryPages.Profile):
+                return (
+                    <div className="secondaryMenu">
+                        <Profile closeMenu = {this.closeSideBar} open={this.props.open}/>
+                    </div>
+                )
+            case(SecondaryPages.Search):
+                return (
+                    <div className="secondaryMenu">
+                        <Search />
+                    </div>
+                )
+            default:
+                return null;
+        }
+    }
+
+    closeSideBar() {
+        this.setState({open: SecondaryPages.None, isLoggedIn: true})
     }
 
     render() {
@@ -42,7 +50,7 @@ export class Sidebar extends React.Component<any> {
         return  (<div>
                     <div className="sidebar">
                         <Link to="/home">
-                            <span className="fa-stack fa-2x" onClick={() => this.setState({open: SecondaryPages.None})}>
+                            <span className="fa-stack fa-2x" onClick={this.closeSideBar}>
                                 <i className="fa fa-circle fa-stack-2x sidebar-main"></i>
                                 <i className="fa fa-reddit-alien fa-stack-1x"></i>
                             </span>
