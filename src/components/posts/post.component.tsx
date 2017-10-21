@@ -4,6 +4,7 @@ import { PostData } from './post.model';
 import { LinkPost } from './link.component';
 import { PicturePost } from './pic.component';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export class Post extends React.Component<any> {
     constructor(props: any) {
@@ -34,22 +35,24 @@ export class Post extends React.Component<any> {
     
     render() {
         return (
-            <div className="post">
-                <div className="title-block">
-                    <span className="subreddit-thumb"><i className="fa fa-2x fa-reddit"></i>
-                    </span>
-                    <div className="subreddit-info">
-                        <span>r/{this.props.data.subreddit}</span>
-                        <small>3h • {this.props.data.author}</small>
+            <Link to={'/post/' + this.props.data.subreddit + '/' + this.props.data.id}>
+                <div className="post">
+                    <div className="title-block">
+                        <span className="subreddit-thumb"><i className="fa fa-2x fa-reddit"></i>
+                        </span>
+                        <div className="subreddit-info">
+                            <span>r/{this.props.data.subreddit}</span>
+                            <small>3h • {this.props.data.author}</small>
+                        </div>
+                        <span className="post-options"><a><i className="fa fa-ellipsis-h"></i></a></span>
                     </div>
-                    <span className="post-options"><a><i className="fa fa-ellipsis-h"></i></a></span>
+                    <div className="post-block">{this.renderPost()}</div>
+                    <div className="vote-block">
+                        <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i> upvote</span>
+                        <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i> downvote</span>
+                    </div>
                 </div>
-                <div className="post-block">{this.renderPost()}</div>
-                <div className="vote-block">
-                    <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i> upvote</span>
-                    <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i> downvote</span>
-                </div>
-            </div>
+            </Link>
         );
     }
 }

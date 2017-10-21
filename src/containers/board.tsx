@@ -25,18 +25,26 @@ export class Board extends React.Component<BoardProps> {
     }
 
     componentWillReceiveProps(nextProps: BoardProps) {
-        if(nextProps.match.params.boardType != this.props.match.params.boardType) {
+        if(nextProps.match.params.boardType != this.props.match.params.boardType || nextProps.match.params.subreddit != this.props.match.params.subreddit) {
             this.setState({isLoading: true, data: [], dataCount: 0})
-            this.getData(Number(nextProps.match.params.boardType)).then(data => {
+            this.getData(Number(nextProps.match.params.boardType), nextProps.match.params.subreddit).then(data => {
                 this.setState({data: data, isLoading: false, dataCount: data.count});
             });
         }
     }
 
-    getData(boardType: BoardTypes) {
-        return axios.get(BoardTypeObjects[boardType].URL).then(res => {
-            return res.data.data.children;
-        });
+    getData(boardType: BoardTypes, subreddit?: string) {
+        switch(boardType) {
+            case BoardTypes.Subreddits:
+            console.log(this.props.match.params);
+                return axios.get(BoardTypeObjects[boardType].URL + subreddit).then(res => {
+                    return res.data.data.children;
+                });
+            default:
+                return axios.get(BoardTypeObjects[boardType].URL).then(res => {
+                    return res.data.data.children;
+                });
+        }
     }
 
     renderPost(post: any) {

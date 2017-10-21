@@ -4,6 +4,7 @@ import { Sidebar } from '../components/sidebar';
 import { Route } from 'react-router-dom';
 
 import { Board } from './board';
+import { PostPage } from './post-page';
 // import { Login } from './login';
 
 export class App extends React.Component<any> {
@@ -14,7 +15,9 @@ export class App extends React.Component<any> {
                 <Sidebar />
                 <div className="flex-container">
                     <Header location = {location}/>
-                    <Route path="/board/:boardType" component={Board}/>
+
+                    <Route path="/board/:boardType/:subreddit?" component={Board}/>
+                    <Route path="/post/:subreddit/:article" component={PostPage} />
                     {/* <Route path="/Login" component={Login}/> */}
                 </div>
             </div>

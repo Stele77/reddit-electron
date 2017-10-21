@@ -18,7 +18,7 @@ export class Header extends React.Component<any> {
         let index = BoardTypeObjects.map(x => x.route).indexOf(this.props.location.pathname);
         let name: string;
         if(index == -1) {
-            name = "Top";
+            name = this.props.location.pathname.slice(10);
         } else {
             name = BoardTypeObjects[index].FriendlyName;
         }
