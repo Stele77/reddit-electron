@@ -46,12 +46,12 @@ export class Board extends React.Component<BoardProps> {
                 {
                     case BoardTypes.Saved:
                     case BoardTypes.Top:
-                    return <div>{this.state.data.map(this.renderPost)}</div>
+                    return <div className="board">{this.state.data.map(this.renderPost)}</div>
                 }
             }
         }
         return (
-                <div>
+                <div className="board">
                     <h1>A Board Component</h1>
                     <div>Loading...</div>
                 </div>
