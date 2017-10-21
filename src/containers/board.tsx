@@ -28,6 +28,7 @@ export class Board extends React.Component<BoardProps> {
     }
 
     componentWillUpdate() {
+        this.setState({data: null});
         this.getData().then(data => {
             this.setState({data: data});
         });
