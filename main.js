@@ -26,6 +26,9 @@ app.on('ready', function() {
     res.sendFile(path.join(__dirname, "dist", req.params.fileName));
   })
 
+  e.get('*', (req, res) => {
+  })
+
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 720,
