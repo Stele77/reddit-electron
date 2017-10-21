@@ -16,7 +16,7 @@ interface BoardTypeObject {
 const username = "PsychedelicL10n";
 
 export const BoardTypeObjects: BoardTypeObject[] = [{
-    URL: nonAuthURL + "r/all/hot.json",
+    URL: authURL + "hot",
     FriendlyName: "Top"
 }, {
     URL: authURL, 

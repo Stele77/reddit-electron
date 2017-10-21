@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Profile } from './profileMenu/profile';
 import { Search } from './search';
 import { Messages } from './messages';
+import { BoardTypes } from '../boardTypes';
 
 export class Sidebar extends React.Component<any> {
     state: { open: SecondaryPages, isLoggedIn: boolean} = { open: SecondaryPages.None, isLoggedIn: false};
@@ -49,7 +50,7 @@ export class Sidebar extends React.Component<any> {
         if(this.state.isLoggedIn) {
         return  (<div>
                     <div className="sidebar">
-                        <Link to="/home">
+                        <Link to={"/board/" + BoardTypes.Top}>
                             <span className="fa-stack fa-2x" onClick={this.closeSideBar}>
                                 <i className="fa fa-circle fa-stack-2x sidebar-main"></i>
                                 <i className="fa fa-reddit-alien fa-stack-1x"></i>

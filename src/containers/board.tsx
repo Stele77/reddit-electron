@@ -13,7 +13,7 @@ export class Board extends React.Component<BoardProps> {
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer mVFGmVNAZAYEide9skfbb8ojNE8";
+        axios.defaults.headers.common['Authorization'] = "Bearer LQHiNUEtX-0nA1ZQouSDboF5jPo";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 

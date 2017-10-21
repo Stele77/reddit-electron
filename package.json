@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "rimraf dist && concurrently \"webpack\" \"electron .\""
+    "start": "concurrently \"webpack\" \"electron .\""
   },
   "keywords": [],
   "author": "",
