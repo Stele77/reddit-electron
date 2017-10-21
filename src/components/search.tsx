@@ -28,7 +28,7 @@ export class Search extends React.Component<SearchProps> {
 
     search(event: any) {
         this.setState({isLoading: true});
-        axios.defaults.headers.common['Authorization'] = "Bearer -LurnDc_nLn8lhmUU3qUjODnFNA";
+        axios.defaults.headers.common['Authorization'] = "Bearer WpSK8bATAF-Gnl79G6b09Uejt1c";
         axios.get("https://oauth.reddit.com/search?type=sr&q=" + this.state.q).then(res => {
             console.log(res.data.data.children);
             this.setState({isLoading: false, searchResults: res.data.data.children});

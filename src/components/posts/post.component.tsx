@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer -LurnDc_nLn8lhmUU3qUjODnFNA";
+        axios.defaults.headers.common['Authorization'] = "Bearer WpSK8bATAF-Gnl79G6b09Uejt1c";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
@@ -28,33 +28,32 @@ export class Post extends React.Component<any> {
     }
 
     upVote() {
-        axios.post('https://oauth.reddit.com/api/vote/-1');
+        axios.post('https://oauth.reddit.com/r/' + this.props.data.subreddit + '/' + this.props.data.id + '/1');
     }
 
     downVote() {
-
+        axios.post('https://oauth.reddit.com/api/vote/-1');
     }
     
     render() {
         return (
-            <Link to={'/post/' + this.props.data.subreddit + '/' + this.props.data.id}>
-                <div className="post">
-                    <div className="title-block">
-                        <span className="subreddit-thumb"><i className="fa fa-2x fa-reddit"></i>
-                        </span>
-                        <div className="subreddit-info">
-                            <span>r/{this.props.data.subreddit}</span>
-                            <small>3h • {this.props.data.author}</small>
-                        </div>
-                        <span className="post-options"><a><i className="fa fa-ellipsis-h"></i></a></span>
+            <div className="post">
+                <div className="title-block">
+                    <span className="subreddit-thumb"><i className="fa fa-2x fa-reddit"></i>
+                    </span>
+                    <div className="subreddit-info">
+                        <span>r/{this.props.data.subreddit}</span>
+                        <small>3h • {this.props.data.author}</small>
                     </div>
-                    <div className="post-block">{this.renderPost()}</div>
-                    <div className="vote-block">
-                        <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i> upvote</span>
-                        <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i> downvote</span>
-                    </div>
+                    <span className="post-options"><a><i className="fa fa-ellipsis-h"></i></a></span>
                 </div>
-            </Link>
+                <div className="post-block">{this.renderPost()}</div>
+                <div className="vote-block">
+                    <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i> upvote </span>
+                    <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i> downvote </span>
+                    <span><Link to={'/post/' + this.props.data.subreddit + '/' + this.props.data.id}><i className="fa fa-comments"></i></Link>Comments</span>
+                </div>
+            </div>
         );
     }
 }
