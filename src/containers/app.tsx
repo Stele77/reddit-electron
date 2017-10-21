@@ -13,8 +13,7 @@ export class App extends React.Component {
                 <Sidebar />
                 <div className="flex-container">
                     <Header />
-                    <Board />
-                    {/* <Route path="/home" component={Board}/> */}
+                    <Route path="/board/:boardType" component={Board}/>
                     <Route path="/Login" component={Login}/>
                 </div>
             </div>
