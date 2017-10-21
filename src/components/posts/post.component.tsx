@@ -8,8 +8,6 @@ import axios from "axios";
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer BGUPj8n_VKXyocS-8yg8lBUaOXw";
-        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     renderPost() {
@@ -27,11 +25,11 @@ export class Post extends React.Component<any> {
     }
 
     upVote() {
-        axios.post('https://oauth.reddit.com/api/vote/-1');
+        axios.post('https://oauth.reddit.com/r/' + this.props.data.subreddit + '/' + this.props.data.id + '/1');
     }
 
     downVote() {
-
+        axios.post('https://oauth.reddit.com/api/vote/-1');
     }
     
     render() {
