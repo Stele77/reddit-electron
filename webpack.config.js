@@ -36,8 +36,6 @@ module.exports = {
         "react-dom": "ReactDOM"
     },
 
-    watch: true,
-
     plugins: [
         function() {
             this.plugin("done", function(statsData) {

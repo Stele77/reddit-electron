@@ -7,13 +7,10 @@ import { PicturePost } from './pic.component';
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
-
-        console.log(props.data);
     }
 
     renderPost() {
         let postData: PostData = this.props.data;
-        console.log(postData);
         switch (postData.post_hint) {
             case ("link"):
                 return (<LinkPost post={postData}/>)
