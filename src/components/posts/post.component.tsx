@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer 2Qch7ISAPoQnZikrs67Mchjzpcw";
+        axios.defaults.headers.common['Authorization'] = "Bearer -LurnDc_nLn8lhmUU3qUjODnFNA";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 

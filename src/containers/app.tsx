@@ -17,6 +17,7 @@ export class App extends React.Component<any> {
                     <Header location = {location}/>
                     <Route path="/board/:boardType" component={Board}/>
                     <Route path="/post/:subreddit/:article" component={PostPage} />
+                    <Route path="/board/:boardType/:subreddit" component={Board}/>
                     {/* <Route path="/Login" component={Login}/> */}
                 </div>
             </div>
