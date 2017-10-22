@@ -133,6 +133,12 @@ img {
     float: right;
 }
 
+.sneaky {
+    position: absolute;
+    left: 4px;
+    bottom: 11px;
+}
+
 .header > .subreddit-name {
     text-align: center;
     font-size: 24px;
@@ -149,10 +155,6 @@ img {
 .login-button {
     color: #333;
     text-decoration: none;
-}
-
-.sidebar-main {
-    color: gold; 
 }
 
 .sidebar-secondary {
@@ -210,4 +212,9 @@ a:hover {
 
 .logo-color {
     color: #083007;
+}
+
+
+.sidebar-main {
+    color: gold; 
 }

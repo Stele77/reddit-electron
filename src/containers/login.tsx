@@ -1,13 +1,22 @@
 import * as React from 'React';
 import axios from 'axios';
 import WebView from 'react-electron-webview';
+import { Redirect } from 'react-router';
 
-export class Login extends React.Component {
+export class Login extends React.Component<any> {
 
     constructor(props: any) {
         super(props);
         this.handleInput = this.handleInput.bind(this);
         this.handleLog = this.handleLog.bind(this);
+    }
+
+    componentWillMount()
+    {
+        if(this.props.match.params.out)
+        {
+            localStorage.clear();
+        }
     }
 
     state: any = {token:"", success: false};
@@ -17,6 +26,7 @@ export class Login extends React.Component {
         axios.defaults.headers.common['Authorization'] = "Bearer " + this.state.token;
         event.preventDefault();
         this.setState({success: true});
+        return (<Redirect to = "/" />);
     }
 
     handleInput(event: any) {
