@@ -56,9 +56,9 @@ export class Post extends React.Component<any> {
                     <div className="post-block">{this.renderPost()}</div>
                 </Link>
                 <div className="vote-block">
-                    <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i></span>
-                    <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i></span>
-                    <span><i className="fa fa-comments fa-inverse"></i>Comments</span>  
+                    <span>{this.props.data.ups} <i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i></span>
+                    <span>{this.props.data.downs} <i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i></span>
+                    <span><i className="fa fa-comments fa-inverse"></i> {this.props.data.num_comments} Comments</span>  
                 </div>
             </div>
         );

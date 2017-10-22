@@ -34,7 +34,7 @@ export class Board extends React.Component<BoardProps> {
     getData(boardType: BoardTypes, subreddit?: string) {
         switch(boardType) {
             case BoardTypes.Subreddits:
-                return axios.get(BoardTypeObjects[boardType].URL + subreddit).then(res => {
+                return axios.get(BoardTypeObjects[boardType].URL + subreddit+"?limit=100").then(res => {
                     return res.data.data.children;
                 });
             default:
