@@ -36,6 +36,7 @@ app.on('ready', function() {
     autoHideMenuBar: true,
     useContentSize: true,
     resizable: true,
+    icon: path.join(__dirname, "favicon.ico")
   });
   mainWindow.webContents.openDevTools()
   mainWindow.loadURL('http://localhost:5000/');
