@@ -40,7 +40,7 @@ export class Post extends React.Component<any> {
     }
     
     render() {
-        let route = './post' + '/' + this.props.data.subreddit + '/' + this.props.data.id;        
+        let route = '/post' + '/' + this.props.data.subreddit + '/' + this.props.data.id;        
         return (
             <div className="post">                
                 <div className="title-block">
