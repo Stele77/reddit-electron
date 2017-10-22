@@ -56,13 +56,13 @@ export class Board extends React.Component<BoardProps> {
         let col1 = [], col2 = [], col3 = [];
         let i;
         for(i = 0; i < this.state.data.length; i++) {
-            if(i % 3 == 0) {
+            if(i % 3 == 0 && this.state.data[i].data.over_18 == false) {
                 col1.push(this.renderPost(this.state.data[i]))
             }
-            if(i % 3 == 1) {
+            if(i % 3 == 1 && this.state.data[i].data.over_18 == false) {
                 col2.push(this.renderPost(this.state.data[i]))
             }
-            if(i % 3 == 2) {
+            if(i % 3 == 2 && this.state.data[i].data.over_18 == false) {
                 col3.push(this.renderPost(this.state.data[i]))
             }
         }
