@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 export class Post extends React.Component<any> {
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer btT2GnB9J1IQvM0hmKYyeG8r_g0";
-        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     renderPost() {
@@ -51,7 +49,7 @@ export class Post extends React.Component<any> {
                 <div className="vote-block">
                     <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i> upvote </span>
                     <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i> downvote </span>
-                    <span><Link to={'/post/' + this.props.data.subreddit + '/' + this.props.data.id}><i className="fa fa-comments"></i></Link>Comments</span>
+                    <span><Link to={'/post' + '/' + this.props.data.subreddit + '/' + this.props.data.id}><i className="fa fa-comments fa-inverse"></i></Link>Comments</span>
                 </div>
             </div>
         );

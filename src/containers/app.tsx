@@ -8,10 +8,20 @@ import { PostPage } from './post-page';
 
 import { Redirect } from 'react-router-dom';
 import { BoardTypes } from '../boardTypes';
+
+import axios from 'axios';
+
 // import { Login } from './login';
 
 export class App extends React.Component<any> {
     location = this.props.location;
+
+    constructor(props: any) {
+        super(props);
+        axios.defaults.headers.common['Authorization'] = "Bearer btT2GnB9J1IQvM0hmKYyeG8r_g0";
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    }
+
     reroute() {
         if(this.props.location.pathname == '/'){
             return <Redirect to={"/board/" + BoardTypes.Subreddits + '/popular'} />
