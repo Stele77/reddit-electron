@@ -9,7 +9,18 @@ export interface ProfileProps {
 
 export class NewPost extends React.Component<ProfileProps> {
 
+    post() {
+
+    }
+
     render() {
-        return;
+        return (
+            <div className= "newPost">
+                <form onSubmit= {this.post()}>
+                Subre
+
+                </form>
+            </div>
+        );
     }
 }
