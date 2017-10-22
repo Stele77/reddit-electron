@@ -51,9 +51,10 @@ export class Search extends React.Component<SearchProps> {
     render(){
         return (
             <div className= "search">
-            <form onSubmit={this.search}>
-                Search: <input type="text" value={this.state.q} onChange={this.handleInput}/>
-                <input type="submit" value="Submit"/>
+            <h3>Search</h3><br/>
+            <form className= "form-style-4" onSubmit={this.search}>
+                <input className= "form-control search-form" type="text" value={this.state.q} onChange={this.handleInput}/>
+                <input className="searchBtn" type= "submit"/>
             </form>
             {this.displaySubreddits()}
             <div onClick={this.props.closeMenu}>{   this.state.searchResults.map((x: any) => (

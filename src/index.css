@@ -10,6 +10,23 @@
     flex-direction: column;
     align-items: center; 
     background-color: darkred;
+    border-right: 1px solid black;
+}
+
+.search {
+    margin-top: 55px;
+    text-align: center;
+    font: bold;
+}
+
+.search-form {
+    margin-left: 5px;
+    width: 94%;
+    margin-bottom: 5px;
+}
+
+.searchBtn {
+    display: none;
 }
 
 .secondaryMenu {
@@ -152,6 +169,15 @@ a:hover {
     color: #333;
 }
 
+
+.mess-stack {
+    color: lightgrey;
+}
+
+.blank-it {
+    color: darkred;
+}
+
 .comment {
     border: 1px solid black;
     margin: 10px;
@@ -163,4 +189,9 @@ a:hover {
     margin: 10px;
     padding: 10px;
     background-color: lightyellow;
+
+}
+
+.logo-color {
+    color: darkgreen;
 }

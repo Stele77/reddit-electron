@@ -44,7 +44,7 @@ export class Post extends React.Component<any> {
         return (
             <div className="post">                
                 <div className="title-block">
-                    <span className="subreddit-thumb"><i className="fa fa-2x fa-reddit"></i>
+                    <span className="subreddit-thumb"><i className="fa fa-2x fa-pied-piper-alt"></i>
                     </span>
                     <div className="subreddit-info">
                         <span>r/{this.props.data.subreddit}</span>

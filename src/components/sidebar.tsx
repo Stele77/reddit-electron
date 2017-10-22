@@ -53,7 +53,7 @@ export class Sidebar extends React.Component<any> {
                         <Link to={"/board/" + BoardTypes.Subreddits + "/popular"}>
                             <span className="fa-stack fa-2x" onClick={this.closeSideBar}>
                                 <i className="fa fa-circle fa-stack-2x sidebar-main"></i>
-                                <i className="fa fa-reddit-alien fa-stack-1x"></i>
+                                <i className="fa fa-pied-piper fa-stack-1x logo-color"></i>
                             </span>
                         </Link>
                         <span className="fa-stack fa-2x" onClick={() => this.setState({open: SecondaryPages.Message})}>
@@ -68,11 +68,6 @@ export class Sidebar extends React.Component<any> {
                             <i className="fa fa-circle fa-stack-2x sidebar-secondary"></i>
                             <i className="fa fa-user fa-stack-1x"></i>
                         </span>
-                        <span className="fa-stack fa-2x newPost" onClick={() => this.setState({open: SecondaryPages.NewPost})}>
-                            <i className="fa fa-circle fa-stack-2x sidebar-secondary"></i>
-                            <i className="fa fa-plus fa-stack-1x"></i>
-                        </span>
-                        
                     </div>
                     {this.showSideBar()}
                 </div>);
@@ -86,6 +81,5 @@ export enum SecondaryPages {
     Profile,
     Search,
     Message,
-    NewPost,
     None
 }
