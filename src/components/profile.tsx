@@ -12,45 +12,41 @@ export class Profile extends React.Component<ProfileProps> {
 
     render() {
         return (<div className='profile'>
-                        <span className="fa-stack fa-2x">
-                            <i className="fa fa-circle fa-stack-2x blank-it"></i>
-                            <i className="fa fa-download fa-stack-1x blank-it"></i>
-                        </span>
-                        <br />
+                    <h3 className= "mess-m-text">Profile</h3>
                     <Link to={'/board/' + BoardTypes.Saved} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
                             <i className="fa fa-circle fa-stack-2x"></i>
                             <i className="fa fa-download fa-stack-1x mess-stack"></i>
                         </span>
-                        Saved <br />
+                        <span className="mess-text">Saved</span> <br />
                     </Link>
                     <Link to={'/board/' + BoardTypes.MyPosts} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
                             <i className="fa fa-circle fa-stack-2x"></i>
                             <i className="fa fa-pencil fa-stack-1x mess-stack"></i>
                         </span>
-                        My Posts <br />
+                        <span className="mess-text">My Posts</span> <br />
                     </Link>
                     <Link to={'/board/' + BoardTypes.MyComments} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
                             <i className="fa fa-circle fa-stack-2x"></i>
                             <i className="fa fa-comments fa-stack-1x mess-stack"></i>
                         </span>
-                        My Comments <br />
+                        <span className="mess-text">My Comments</span> <br />
                     </Link>
                     <Link to={'/board/' + BoardTypes.Upvoted} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
                          <i className="fa fa-circle fa-stack-2x"></i>
                          <i className="fa fa-arrow-up fa-stack-1x mess-stack"></i>
                          </span>
-                         Upvoted <br />
+                         <span className="mess-text">Upvoted</span> <br />
                     </Link>
                     <Link to={'/board/' + BoardTypes.Hidden} onClick={this.props.closeMenu}>
                         <span className="fa-stack fa-2x">
                             <i className="fa fa-circle fa-stack-2x"></i>
                             <i className="fa fa-ban fa-stack-1x mess-stack"></i>
                         </span>
-                        Hidden <br />
+                        <span className="mess-text">Hidden</span> <br />
                     </Link>
                 </div>);
     }
