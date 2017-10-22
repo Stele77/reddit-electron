@@ -13,8 +13,7 @@ import { BoardTypes } from '../boardTypes';
 export class App extends React.Component<any> {
     location = this.props.location;
     reroute() {
-        console.log(this.location.pathname);
-        if(this.location.pathname !== "/board/" + BoardTypes.Subreddits + '/popular'){
+        if(this.props.location.pathname == '/'){
             return <Redirect to={"/board/" + BoardTypes.Subreddits + '/popular'} />
         } else {
             return null;

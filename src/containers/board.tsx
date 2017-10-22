@@ -13,12 +13,11 @@ export class Board extends React.Component<BoardProps> {
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer WpSK8bATAF-Gnl79G6b09Uejt1c";
+        axios.defaults.headers.common['Authorization'] = "Bearer btT2GnB9J1IQvM0hmKYyeG8r_g0";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
     componentWillMount() {
-        console.log(this.props.match);
         this.setState({isLoading: true, data: [], dataCount: 0})
         this.getData(Number(this.props.match.params.boardType), this.props.match.params.subreddit).then(data => {
             this.setState({data: data, isLoading: false, dataCount: data.count});
