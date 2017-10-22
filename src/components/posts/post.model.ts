@@ -54,6 +54,7 @@ export interface PostData {
     selftext_html: string;
     spoiler: boolean;
     stickied: boolean;
+    body: string;
     subreddit: string;
     subreddit_id: string;
     subreddit_name_prefixed: string;

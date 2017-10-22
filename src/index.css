@@ -26,15 +26,22 @@
     overflow: auto;
 }
 
+.title, .text {
+    color: white;
+}
+
 .post {
-    width: 45%;
     border: 1px solid #777;
     background: #333;
     color: white;
     border-radius: 4px;
     box-shadow: 4px 4px 9px black;
     margin: 5px;
-    max-width: 300px;
+    color: white !important;
+}
+
+.post-col {
+    padding: 0px;
 }
 
 .title-block {
@@ -79,8 +86,7 @@
 .vote-block {
     font-size: smaller;
     border-top: 1px solid #777;
-    margin-top: 5px;
-    margin-left: 10px;
+    margin: 5px 10px 0px;
 }
 
 .vote-block > span {

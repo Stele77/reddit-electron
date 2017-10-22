@@ -2,9 +2,14 @@ import * as React from "react";
 import { PostData, IPostProp } from "./post.model";
 
 export class TextPost extends React.Component<IPostProp> {
+    state: any = {isError: false}
+
     constructor(props: IPostProp) {
         super(props);
-        console.log(props);
+    }
+
+    handleError() {
+        this.setState({isError: true})
     }
 
     render(): any {
@@ -16,8 +21,11 @@ export class TextPost extends React.Component<IPostProp> {
             <div className="text-selftext">
                 {this.props.post.selftext}
             </div>
-            {this.props.post.thumbnail != null ? 
-            (<img className="text-thumnail" src={this.props.post.thumbnail}/>) : null }
+            <div className="text-body">
+                {this.props.post.body}
+            </div>
+            {this.props.post.thumbnail != null && !this.state.isError ? 
+            (<img className="text-thumnail" src={this.props.post.thumbnail}  onError={this.handleError} />) : null }
         </div>)
     }
 }
