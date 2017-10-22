@@ -13,6 +13,22 @@
     border-right: 1px solid black;
 }
 
+.search {
+    margin-top: 55px;
+    text-align: center;
+    font: bold;
+}
+
+.search-form {
+    margin-left: 5px;
+    width: 94%;
+    margin-bottom: 5px;
+}
+
+.searchBtn {
+    display: none;
+}
+
 .secondaryMenu {
     width: 200px;
     float: left;
@@ -128,14 +144,15 @@ a:hover {
     color: #333;
 }
 
-<<<<<<< HEAD
+
 .mess-stack {
     color: lightgrey;
 }
 
 .blank-it {
     color: darkred;
-=======
+}
+
 .comment {
     border: 1px solid black;
     margin: 10px;
@@ -147,5 +164,9 @@ a:hover {
     margin: 10px;
     padding: 10px;
     background-color: lightyellow;
->>>>>>> 153d503488752b9d342c307ff6f1901f529dd5b1
+
+}
+
+.logo-color {
+    color: darkgreen;
 }
