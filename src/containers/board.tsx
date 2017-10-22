@@ -48,6 +48,26 @@ export class Board extends React.Component<BoardProps> {
         return <Post data={post.data}/>;
     }
 
+    buildColumns() {
+        let col1 = [], col2 = [], col3 = [];
+        let i;
+        for(i = 0; i < this.state.data.length; i++) {
+            if(i % 3 == 0) {
+                col1.push(this.renderPost(this.state.data[i]))
+            }
+            if(i % 3 == 1) {
+                col2.push(this.renderPost(this.state.data[i]))
+            }
+            if(i % 3 == 2) {
+                col3.push(this.renderPost(this.state.data[i]))
+            }
+        }
+        let colElem1 = (<div className="post-col col-sm-4">{col1}</div>)
+        let colElem2 = (<div className="post-col col-sm-4">{col2}</div>)
+        let colElem3 = (<div className="post-col col-sm-4">{col3}</div>)
+        return (<div>{colElem1}{colElem2}{colElem3}</div>)
+    }
+
     render() {
         if (this.state && !this.state.isLoading) {
             if(this.state.data.length == 0) {
@@ -58,12 +78,12 @@ export class Board extends React.Component<BoardProps> {
                 switch(this.props.boardType)
                 {
                     default:
-                    return <div className="board">{this.state.data.map(this.renderPost)}</div>
+                    return this.buildColumns();
                 }
             }
         } else {
             return (
-                <div className="board">
+                <div className="board row">
                     <div>Loading...</div>
                 </div>
             )

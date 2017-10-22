@@ -33,15 +33,16 @@ export class Post extends React.Component<any> {
         axios.post('https://oauth.reddit.com/api/vote/-1');
     }
 
-    GoToPost() {
+    GoToPost(route: string) {
         return (
-            <Redirect to={'/post' + '/' + this.props.data.subreddit + '/' + this.props.data.id} />
+            <Redirect to={route} />
         )
     }
     
     render() {
+        let route = './post' + '/' + this.props.data.subreddit + '/' + this.props.data.id;        
         return (
-            <div className="post" onClick={this.GoToPost}>                
+            <div className="post">                
                 <div className="title-block">
                     <span className="subreddit-thumb"><i className="fa fa-2x fa-pied-piper-alt"></i>
                     </span>
@@ -51,7 +52,9 @@ export class Post extends React.Component<any> {
                     </div>
                     <span className="post-options"><a><i className="fa fa-ellipsis-h"></i></a></span>
                 </div>
-                <div className="post-block">{this.renderPost()}</div>
+                <Link to={route} >
+                    <div className="post-block">{this.renderPost()}</div>
+                </Link>
                 <div className="vote-block">
                     <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i></span>
                     <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i></span>
