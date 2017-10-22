@@ -5,7 +5,7 @@ import { Profile } from './profile';
 import { Search } from './search';
 import { Messages } from './messages';
 import { BoardTypes } from '../boardTypes';
-
+import { Login } from '../containers/login';
 export class Sidebar extends React.Component<any> {
     state: { open: SecondaryPages, isLoggedIn: boolean} = { open: SecondaryPages.None, isLoggedIn: false};
 
@@ -68,6 +68,12 @@ export class Sidebar extends React.Component<any> {
                             <i className="fa fa-circle fa-stack-2x sidebar-secondary"></i>
                             <i className="fa fa-user fa-stack-1x"></i>
                         </span>
+                        <Link to={"/login"}>
+                            <span className="fa-stack fa-2x sneaky">
+                                <i className="fa fa-circle fa-stack-2x sidebar-secondary"></i>
+                                <i className="fa fa-refresh fa-stack-1x"></i>
+                            </span>
+                        </Link>
                     </div>
                     {this.showSideBar()}
                 </div>);
