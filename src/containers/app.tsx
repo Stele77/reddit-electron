@@ -10,15 +10,15 @@ import { Redirect } from 'react-router-dom';
 import { BoardTypes } from '../boardTypes';
 
 import axios from 'axios';
+import { Login } from './login';
 
-// import { Login } from './login';
 
 export class App extends React.Component<any> {
     location = this.props.location;
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer glfjL-gHByKnQ_JNg-gPdDoTONA";
+        axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("Token");
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
@@ -41,7 +41,7 @@ export class App extends React.Component<any> {
 
                     <Route path="/board/:boardType/:subreddit?" component={Board}/>
                     <Route path="/post/:subreddit/:article" component={PostPage} />
-                    {/* <Route path="/Login" component={Login}/> */}
+                    {<Route path="/Login" component={Login}/>}
                 </div>
             </div>
         )

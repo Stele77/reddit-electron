@@ -41,8 +41,8 @@ export class Search extends React.Component<SearchProps> {
     displaySubreddits() {
         if(this.state.q.length == 0)
         {
-            return  (this.state.searchResults.map((x: any) => (<Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.display_name}>
-                        <div>{x.data.display_name_prefixed}</div>   
+            return  (this.state.subreddits.map((x: any) => (<Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.display_name}>
+                        <div className="mess-text">{x.data.display_name_prefixed}</div>   
                     </Link>)));
         }
         return null;
@@ -59,7 +59,7 @@ export class Search extends React.Component<SearchProps> {
             {this.displaySubreddits()}
             <div onClick={this.props.closeMenu}>{   this.state.searchResults.map((x: any) => (
                 <Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.display_name}>
-                    <div>{x.data.display_name_prefixed}</div>   
+                    <div className="mess-text">{x.data.display_name_prefixed}</div>   
                 </Link>
             ))
             }</div>
