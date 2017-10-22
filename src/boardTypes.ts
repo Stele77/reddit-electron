@@ -1,5 +1,5 @@
-const nonAuthURL = 'https://www.reddit.com/';
-const authURL = 'https://oauth.reddit.com/';
+export const nonAuthURL = 'https://www.reddit.com/';
+export const authURL = 'https://oauth.reddit.com/';
 export enum BoardTypes {
     Top,
     Saved,
