@@ -26,9 +26,10 @@ export class Header extends React.Component<any> {
             <div className="header">
                 <div className="subreddit-name">
                     {name}
-                    <Link to = {"/login"}>
+                    {localStorage.getItem("Token") == null ? (<Link to = {"/login"}>
                         <span className="pull-right">Login</span>
-                    </Link>
+                    </Link>) : 
+                    (<span onClick={()=>localStorage.removeItem("Token")} className="pull-right">Logout</span>) }
                 </div>
             </div>);
     }
