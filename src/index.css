@@ -73,6 +73,8 @@
 
 .vote-block {
     font-size: smaller;
+    display: flex;
+    justify-content: space-around;
 }
 
 .post-options > a {
@@ -123,4 +125,17 @@ a {
 
 a:hover {
     color: #333;
+}
+
+.comment {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.commentPost {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightyellow;
 }
