@@ -19,9 +19,7 @@ export class PostPage extends React.Component<any> {
 
     getData() {
         return axios.get(authURL + 'r/' +this.props.match.params.subreddit + "/comments/" + this.props.match.params.article).then(res => {
-            return res.data.reduce((a: any, b: any) => {
-                a.children.concat(b.children);
-            });
+            return res.data;
 
         })
     }
@@ -29,7 +27,14 @@ export class PostPage extends React.Component<any> {
     render() {
         return (
             <div>
-                {this.state.data.map((x: any) => <div>{x.data.children[0].title} {x.data.children[0].body}</div>)}
+                <div className="commentPost">
+                    {this.state.data.length > 0 ? this.state.data[0].data.children.map((x: any) => <div>{x.data.title}</div>) : null}
+                </div>
+                
+                <div>
+                    Comments: 
+                    {this.state.data.length > 1 ? this.state.data[1].data.children.map((x: any) => <div className="comment">{x.data.body}</div>) : null}
+                </div>
             </div>
         )
     }

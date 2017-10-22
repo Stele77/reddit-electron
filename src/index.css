@@ -74,6 +74,8 @@
 
 .vote-block {
     font-size: smaller;
+    display: flex;
+    justify-content: space-around;
 }
 
 .post-options > a {
@@ -126,10 +128,24 @@ a:hover {
     color: #333;
 }
 
+<<<<<<< HEAD
 .mess-stack {
     color: lightgrey;
 }
 
 .blank-it {
     color: darkred;
+=======
+.comment {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.commentPost {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightyellow;
+>>>>>>> 153d503488752b9d342c307ff6f1901f529dd5b1
 }
