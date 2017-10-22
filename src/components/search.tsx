@@ -11,7 +11,7 @@ export interface SearchProps {
 
 export class Search extends React.Component<SearchProps> {
 
-    state: any = {q: "", searchResults: [], isLoading: false};
+    state: any = {q: "", searchResults: [], isLoading: false, subreddits: []};
     
     constructor(props: SearchProps) {
         super(props);
@@ -19,6 +19,13 @@ export class Search extends React.Component<SearchProps> {
         this.search = this.search.bind(this);
     }
     
+    componentWillMount() {
+        this.setState({isLoading: true, data: [], dataCount: 0})
+        axios.get("https://oauth.reddit.com/subreddits/mine/subscriber").then(res => {
+            this.setState({isLoading: false, subreddits: res.data.data.children})
+        });
+    }
+
     search(event: any) {
         this.setState({isLoading: true});
         axios.get("https://oauth.reddit.com/search?type=sr&q=" + this.state.q).then(res => {
@@ -30,6 +37,17 @@ export class Search extends React.Component<SearchProps> {
     handleInput(event: any) {
         this.setState({q: event.target.value});
     }
+
+    displaySubreddits() {
+        if(this.state.q.length == 0)
+        {
+            return  (this.state.searchResults.map((x: any) => (<Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.display_name}>
+                        <div>{x.data.display_name_prefixed}</div>   
+                    </Link>)));
+        }
+        return null;
+    }
+
     render(){
         return (
             <div className= "search">
@@ -37,6 +55,7 @@ export class Search extends React.Component<SearchProps> {
                 Search: <input type="text" value={this.state.q} onChange={this.handleInput}/>
                 <input type="submit" value="Submit"/>
             </form>
+            {this.displaySubreddits()}
             <div onClick={this.props.closeMenu}>{   this.state.searchResults.map((x: any) => (
                 <Link to = {"/board/" + BoardTypes.Subreddits + "/" + x.data.display_name}>
                     <div>{x.data.display_name_prefixed}</div>   
