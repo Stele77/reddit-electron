@@ -34,6 +34,7 @@
     border-radius: 4px;
     box-shadow: 4px 4px 9px black;
     margin: 5px;
+    max-width: 300px;
 }
 
 .title-block {
@@ -41,6 +42,11 @@
     align-items: center;
     padding: 3px;
     border-bottom: 1px solid #777;
+}
+
+.text {
+    text-align: center;
+    width: 100%;
 }
 
 .subreddit-thumb {
@@ -65,22 +71,36 @@
 
 .link {
     display: flex;
-}
-
-.pic > img {
-    max-width: 100%;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
 }
 
 .vote-block {
     font-size: smaller;
-    display: flex;
-    justify-content: space-around;
+    border-top: 1px solid #777;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.vote-block > span {
+    margin: 0px 5px;
 }
 
 .post-options > a {
     color: white;
 }
 
+img {
+    width: 100%;
+    max-width: 260px;
+}
+
+.pic {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
 
 .header {
     height: 40px;
@@ -97,7 +117,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: #dddddd;
 }
 
 .login-button {

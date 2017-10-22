@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Profile } from './profile';
 import { Search } from './search';
 import { Messages } from './messages';
-import { NewPost } from './newPost';
 import { BoardTypes } from '../boardTypes';
 
 export class Sidebar extends React.Component<any> {
@@ -36,12 +35,6 @@ export class Sidebar extends React.Component<any> {
                 return (
                     <div className="secondaryMenu">
                         <Search closeMenu = {this.closeSideBar} open={this.props.open}/>
-                    </div>
-                )
-            case(SecondaryPages.NewPost):
-                return (
-                    <div className="secondaryMenu">
-                        <NewPost closeMenu = {this.closeSideBar} open={this.props.open}/>
                     </div>
                 )
             default:

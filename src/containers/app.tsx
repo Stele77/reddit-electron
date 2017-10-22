@@ -18,7 +18,7 @@ export class App extends React.Component<any> {
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer 798dXMdPtpNDkLYhB-wOTsxwVes";
+        axios.defaults.headers.common['Authorization'] = "Bearer 5x92Zj_PS29MUp4j85YmAGEBVW8";
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 

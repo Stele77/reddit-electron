@@ -4,7 +4,7 @@ import { PostData } from './post.model';
 import { LinkPost } from './link.component';
 import { PicturePost } from './pic.component';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 export class Post extends React.Component<any> {
     constructor(props: any) {
@@ -32,10 +32,16 @@ export class Post extends React.Component<any> {
     downVote() {
         axios.post('https://oauth.reddit.com/api/vote/-1');
     }
+
+    GoToPost() {
+        return (
+            <Redirect to={'/post' + '/' + this.props.data.subreddit + '/' + this.props.data.id} />
+        )
+    }
     
     render() {
         return (
-            <div className="post">
+            <div className="post" onClick={this.GoToPost}>                
                 <div className="title-block">
                     <span className="subreddit-thumb"><i className="fa fa-2x fa-reddit"></i>
                     </span>
@@ -47,9 +53,9 @@ export class Post extends React.Component<any> {
                 </div>
                 <div className="post-block">{this.renderPost()}</div>
                 <div className="vote-block">
-                    <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i> upvote </span>
-                    <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i> downvote </span>
-                    <span><Link to={'/post' + '/' + this.props.data.subreddit + '/' + this.props.data.id}><i className="fa fa-comments fa-inverse"></i></Link>Comments</span>
+                    <span><i className="fa fa-arrow-circle-o-up" onClick={this.upVote}></i></span>
+                    <span><i className="fa fa-arrow-circle-o-down" onClick={this.downVote}></i></span>
+                    <span><i className="fa fa-comments fa-inverse"></i>Comments</span>  
                 </div>
             </div>
         );
