@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Profile } from './profile';
 import { Search } from './search';
 import { Messages } from './messages';
-import { NewPost } from './newPost';
 import { BoardTypes } from '../boardTypes';
 
 export class Sidebar extends React.Component<any> {
@@ -38,12 +37,6 @@ export class Sidebar extends React.Component<any> {
                         <Search closeMenu = {this.closeSideBar} open={this.props.open}/>
                     </div>
                 )
-            case(SecondaryPages.NewPost):
-                return (
-                    <div className="secondaryMenu">
-                        <NewPost closeMenu = {this.closeSideBar} open={this.props.open}/>
-                    </div>
-                )
             default:
                 return null;
         }
@@ -75,11 +68,6 @@ export class Sidebar extends React.Component<any> {
                             <i className="fa fa-circle fa-stack-2x sidebar-secondary"></i>
                             <i className="fa fa-user fa-stack-1x"></i>
                         </span>
-                        <span className="fa-stack fa-2x newPost" onClick={() => this.setState({open: SecondaryPages.NewPost})}>
-                            <i className="fa fa-circle fa-stack-2x sidebar-secondary"></i>
-                            <i className="fa fa-plus fa-stack-1x"></i>
-                        </span>
-                        
                     </div>
                     {this.showSideBar()}
                 </div>);
@@ -93,6 +81,5 @@ export enum SecondaryPages {
     Profile,
     Search,
     Message,
-    NewPost,
     None
 }

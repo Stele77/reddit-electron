@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center; 
     background-color: darkred;
+    border-right: 1px solid black;
 }
 
 .secondaryMenu {
@@ -123,4 +124,12 @@ a {
 
 a:hover {
     color: #333;
+}
+
+.mess-stack {
+    color: lightgrey;
+}
+
+.blank-it {
+    color: darkred;
 }
