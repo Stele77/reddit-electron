@@ -29,7 +29,6 @@ export class Search extends React.Component<SearchProps> {
     search(event: any) {
         this.setState({isLoading: true});
         axios.get("https://oauth.reddit.com/search?type=sr&q=" + this.state.q).then(res => {
-            console.log(res.data.data.children);
             this.setState({isLoading: false, searchResults: res.data.data.children});
         })
         event.preventDefault();

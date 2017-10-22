@@ -6,6 +6,7 @@ export class LinkPost extends React.Component<IPostProp> {
     
     constructor(props: IPostProp) {
         super(props);
+        this.handleError = this.handleError.bind(this);
     }
 
     handleError() {

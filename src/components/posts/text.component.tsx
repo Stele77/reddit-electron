@@ -6,6 +6,7 @@ export class TextPost extends React.Component<IPostProp> {
 
     constructor(props: IPostProp) {
         super(props);
+        this.handleError = this.handleError.bind(this);
     }
 
     handleError() {
@@ -19,7 +20,7 @@ export class TextPost extends React.Component<IPostProp> {
                 {this.props.post.title}
             </div>
             <div className="text-selftext">
-                {this.props.post.selftext}
+                {this.props.post.selftext && this.props.post.selftext.length > 80 ? this.props.post.selftext.substring(0, 80) + '...' : this.props.post.selftext}
             </div>
             <div className="text-body">
                 {this.props.post.body}

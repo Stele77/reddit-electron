@@ -6,13 +6,11 @@ export class PostPage extends React.Component<any> {
     state: any = { isLoading: false, data: {} };
     constructor(props: any) {
         super(props);
-        console.log(this.props);
     }
 
     componentWillMount() {
         this.setState({isLoading: true, data: []})
         this.getData().then(data => {
-            console.log(data);
             this.setState({data: data, isLoading: false});
         });
     }

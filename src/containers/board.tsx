@@ -32,7 +32,6 @@ export class Board extends React.Component<BoardProps> {
     }
 
     getData(boardType: BoardTypes, subreddit?: string) {
-        console.log(boardType);
         switch(boardType){
             case BoardTypes.Subreddits:
                 return axios.get(BoardTypeObjects[boardType].URL + subreddit+"?limit=100").then(res => {
@@ -52,6 +51,10 @@ export class Board extends React.Component<BoardProps> {
     LoadMore() {
     }
 
+    buildComments() {
+        return this.state.data.map(x => (<div className="links">{x.data.link_title}</div>))
+    }
+
     buildColumns() {
         let col1 = [], col2 = [], col3 = [];
         let i;
@@ -69,25 +72,30 @@ export class Board extends React.Component<BoardProps> {
         let colElem1 = (<div className="post-col col-sm-4">{col1}</div>)
         let colElem2 = (<div className="post-col col-sm-4">{col2}</div>)
         let colElem3 = (<div className="post-col col-sm-4">{col3}</div>)
-        return (<div><div>{colElem1}{colElem2}{colElem3}</div><div className="row"><button onClick={this.LoadMore}>Load More</button></div></div>)
+        return (<div>{colElem1}{colElem2}{colElem3}</div>)
     }
 
     render() {
         if (this.state && !this.state.isLoading) {
-            if(this.state.data.length == 0) {
-                return (<div>
+            if(this.state.data.filter(x => !x.data.over_18).length == 0) {
+                return (<div className="container">
                     <div>We did not find any data matching your request</div>
                 </div>)
             } else {
-                switch(this.props.boardType)
+                switch(Number(this.props.match.params.boardType))
                 {
+                    case BoardTypes.Saved:
+                    case BoardTypes.MyComments:
+                    case BoardTypes.PostReplies:
+                    case BoardTypes.UsernameMentions:
+                        return this.buildComments();
                     default:
-                    return this.buildColumns();
+                        return this.buildColumns();
                 }
             }
         } else {
             return (
-                <div className="board row">
+                <div className="board">
                     <div>Loading...</div>
                 </div>
             )
