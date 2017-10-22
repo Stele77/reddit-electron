@@ -9,16 +9,16 @@ export interface BoardProps {
 }
 
 export class Board extends React.Component<BoardProps> {
-    public state: { data: any[], isLoading: boolean, dateCount: number } ;
+    public state: { data: any[], isLoading: boolean, dateCount: number, pageCount: number } ;
 
     constructor(props: any) {
         super(props);
     }
 
     componentWillMount() {
-        this.setState({isLoading: true, data: [], dataCount: 0})
+        this.setState({isLoading: true, data: [], dataCount: 0, pageCount: 0})
         this.getData(Number(this.props.match.params.boardType), this.props.match.params.subreddit).then(data => {
-            this.setState({data: data, isLoading: false, dataCount: data.count});
+            this.setState({data: data, isLoading: false, dataCount: data.count, pageCount: 1});
         });
     }
 
@@ -48,6 +48,9 @@ export class Board extends React.Component<BoardProps> {
         return <Post data={post.data}/>;
     }
 
+    LoadMore() {
+    }
+
     buildColumns() {
         let col1 = [], col2 = [], col3 = [];
         let i;
@@ -65,7 +68,7 @@ export class Board extends React.Component<BoardProps> {
         let colElem1 = (<div className="post-col col-sm-4">{col1}</div>)
         let colElem2 = (<div className="post-col col-sm-4">{col2}</div>)
         let colElem3 = (<div className="post-col col-sm-4">{col3}</div>)
-        return (<div>{colElem1}{colElem2}{colElem3}</div>)
+        return (<div><div>{colElem1}{colElem2}{colElem3}</div><div className="row"><button onClick={this.LoadMore}>Load More</button></div></div>)
     }
 
     render() {
