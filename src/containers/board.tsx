@@ -3,12 +3,7 @@ import { Post } from '../components/posts/post.component';
 import axios from 'axios';
 import { BoardTypes, BoardTypeObjects } from '../boardTypes';
 
-export interface BoardProps {
-    boardType: BoardTypes;
-    match: any;
-}
-
-export class Board extends React.Component<BoardProps> {
+export class Board extends React.Component<any> {
     public state: { data: any[], isLoading: boolean, dateCount: number, pageCount: number } ;
 
     constructor(props: any) {
@@ -22,7 +17,7 @@ export class Board extends React.Component<BoardProps> {
         });
     }
 
-    componentWillReceiveProps(nextProps: BoardProps) {
+    componentWillReceiveProps(nextProps: any) {
         if(nextProps.match.params.boardType != this.props.match.params.boardType || nextProps.match.params.subreddit != this.props.match.params.subreddit) {
             this.setState({isLoading: true, data: [], dataCount: 0})
             this.getData(Number(nextProps.match.params.boardType), nextProps.match.params.subreddit).then(data => {

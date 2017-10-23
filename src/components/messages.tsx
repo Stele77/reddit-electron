@@ -8,7 +8,7 @@ export interface MessageProps {
     open: any
 }
 
-export class Messages extends React.Component<MessageProps> {
+export class Messages extends React.Component<any> {
 
     render() {
         return (<div className='messages'>

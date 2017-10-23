@@ -1,6 +1,5 @@
 import * as React from 'React';
 import axios from 'axios';
-import WebView from 'react-electron-webview';
 import { Redirect } from 'react-router';
 
 export class Login extends React.Component<any> {
@@ -37,6 +36,7 @@ export class Login extends React.Component<any> {
         return (
             <div>
                 <h3 className="mess-m-text">Log In</h3>
+                <a href="http://reddit.com/api/v1/authorize?client_id=NgpgFc7DxzmgBQ&response_type=code&state=hello&redirect_uri=http://127.0.0.1:5000/authorize_callback&duration=permanent&scope=read%20identity%20mysubreddits%20history%20edit%20save%20submit%20privatemessages%20subscribe%20vote">Click Me!</a>
                 <form className= "form-style-4" onSubmit={this.handleLog}>
                     <input className= "form-control search-form" type="text" value={this.state.token} onChange={this.handleInput}/>
                     <input value="Pay Token" type= "submit"/>

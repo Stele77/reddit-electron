@@ -15,29 +15,37 @@ import { Login } from './login';
 
 export class App extends React.Component<any> {
     location = this.props.location;
+    loginState = false;
 
     constructor(props: any) {
         super(props);
-        axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("Token");
-        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        this.reroute();
     }
 
     reroute() {
-        if(this.props.location.pathname == '/'){
-            return <Redirect to={"/board/" + BoardTypes.Subreddits + '/popular'} />
-        } else {
-            return null;
-        }
+        axios.get('/auth/token').then(res => {
+            let token = res.data.token;
+
+            if(token == null) {
+                this.props.history.push('/Login');
+            } else {
+                this.loginState = true;
+                axios.defaults.headers.common['Authorization'] = "Bearer " + res.data.token;
+                axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+                if(this.props.location.pathname == '/'){
+                    this.props.history.push("/board/" + BoardTypes.Subreddits + '/popular');                
+                }
+            }
+        })
     }
 
     render() {
         
         return (
             <div>
-                {this.reroute()}
                 <Sidebar />
                 <div className="flex-container">
-                    <Header location = {location}/>
+                    <Header location = {location} loginState={this.loginState}/>
 
                     <Route path="/board/:boardType/:subreddit?" component={Board}/>
                     <Route path="/post/:subreddit/:article" component={PostPage} />

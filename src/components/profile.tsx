@@ -8,7 +8,7 @@ export interface ProfileProps {
     open: any;
 }
 
-export class Profile extends React.Component<ProfileProps> {
+export class Profile extends React.Component<any> {
 
     render() {
         return (<div className='profile'>

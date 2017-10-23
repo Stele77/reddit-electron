@@ -22,6 +22,11 @@ export class Header extends React.Component<any> {
             <div className="header">
                 <div className="subreddit-name">
                     {name}
+                    <span className="loginButton pull-right">
+                        {!this.props.loginState ? 
+                        (<a className="btn" href="http://reddit.com/api/v1/authorize?client_id=NgpgFc7DxzmgBQ&response_type=code&state=hello&redirect_uri=http://127.0.0.1:5000/authorize_callback&duration=permanent&scope=read%20identity%20mysubreddits%20history%20edit%20save%20submit%20privatemessages%20subscribe%20vote">Login</a>) :
+                        (<a className="btn" href="/auth/clearToken">Logout</a>)}
+                    </span>
                 </div>
             </div>);
     }

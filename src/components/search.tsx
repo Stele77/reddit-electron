@@ -9,7 +9,7 @@ export interface SearchProps {
     open: any
 }
 
-export class Search extends React.Component<SearchProps> {
+export class Search extends React.Component<any> {
 
     state: any = {q: "", searchResults: [], isLoading: false, subreddits: []};
     
