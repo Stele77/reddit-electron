@@ -40,7 +40,6 @@ app.on('ready', function() {
   })
 
   e.get('/auth/token', (req, res) => {
-    console.log('getting token');
     storage.get('token', (err, token) => {
       if (err) throw err;
       if(Object.keys(token).length == 0) {
