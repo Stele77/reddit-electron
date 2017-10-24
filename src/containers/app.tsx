@@ -20,6 +20,7 @@ export class App extends React.Component<any> {
     constructor(props: any) {
         super(props);
         this.reroute();
+        this.GoBack = this.GoBack.bind(this);
     }
 
     reroute() {
@@ -39,13 +40,17 @@ export class App extends React.Component<any> {
         })
     }
 
+    GoBack() {
+        this.props.history.goBack();
+    }
+
     render() {
         
         return (
             <div>
                 <Sidebar />
                 <div className="flex-container">
-                    <Header location = {location} loginState={this.loginState}/>
+                    <Header location = {location} loginState={this.loginState} back={this.GoBack} showBack={this.props.history.length > 2}/>
 
                     <Route path="/board/:boardType/:subreddit?" component={Board}/>
                     <Route path="/post/:subreddit/:article" component={PostPage} />

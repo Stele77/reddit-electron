@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 import { Redirect } from "react-router";
 
 export class Header extends React.Component<any> {
-    
+    constructor(props: any) {
+        super(props);
+    }
+
     render() {
         let index = BoardTypeObjects.map(x => x.route).indexOf(this.props.location.pathname);
         let name: string;
@@ -21,6 +24,9 @@ export class Header extends React.Component<any> {
         return (
             <div className="header">
                 <div className="subreddit-name">
+                    { this.props.showBack ? (<span className="fa-stack fa-1x pull-left" onClick={this.props.back}>
+                        <i className="fa fa-chevron-left fa-stack-1x"></i>
+                    </span>) : null}
                     {name}
                     <span className="loginButton pull-right">
                         {!this.props.loginState ? 

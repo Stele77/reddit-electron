@@ -40,7 +40,7 @@ export class Board extends React.Component<any> {
     }
 
     handleErr(err: any) {
-        this.props.history.push('/auth/refreshToken');
+        window.location.href = '/auth/refreshToken';
     }
 
     renderPost(post: any) {
