@@ -59,12 +59,15 @@ app.on('ready', function() {
   })
 
   e.get('/auth/refreshToken', (req, res) => {
+    
     storage.get('refresh', (err, token) => {
       if(err) throw err;
       let body = "grant_type=refresh_token&refresh_token=" + token;
       axios.post('https://www.reddit.com/api/v1/access_token', body).then(newToken => {
-        storage.set('refresh', newToken);
+        storage.set('token', newToken.data.access_token);
         res.redirect('/');
+      }, err => {
+        console.log(err);
       });
     });
   });

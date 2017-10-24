@@ -40,7 +40,7 @@ export class Board extends React.Component<any> {
     }
 
     handleErr(err: any) {
-        axios.get('/auth/refreshToken');
+        this.props.history.push('/auth/refreshToken');
     }
 
     renderPost(post: any) {
