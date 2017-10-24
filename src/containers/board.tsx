@@ -31,12 +31,16 @@ export class Board extends React.Component<any> {
             case BoardTypes.Subreddits:
                 return axios.get(BoardTypeObjects[boardType].URL + subreddit+"?limit=100").then(res => {
                     return res.data.data.children;
-                });
+                }, this.handleErr);
             default:
                 return axios.get(BoardTypeObjects[boardType].URL).then(res => {
                     return res.data.data.children;
-                });
+                }, this.handleErr);
         }
+    }
+
+    handleErr(err: any) {
+        axios.get('/auth/refreshToken');
     }
 
     renderPost(post: any) {

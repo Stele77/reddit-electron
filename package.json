@@ -23,6 +23,7 @@
     "electron-json-storage": "^4.0.2",
     "electron-reload": "^1.2.2",
     "express": "^4.16.2",
+    "moment": "^2.19.1",
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-dom": "16.0.0",

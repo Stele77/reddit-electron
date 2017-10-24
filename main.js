@@ -22,7 +22,10 @@ app.on('ready', function() {
       axios.post('https://www.reddit.com/api/v1/access_token', body).then(result => {
         storage.set('token', result.data.access_token, (err) => {
           if(err) throw err;
-        });  
+        });
+        storage.set('refresh', result.data.refresh_token, (err) => {
+          if(err) throw err;
+        });
         res.redirect('/');
       }, err => {
         throw err;
@@ -54,6 +57,17 @@ app.on('ready', function() {
     storage.clear();
     res.redirect('/')
   })
+
+  e.get('/auth/refreshToken', (req, res) => {
+    storage.get('refresh', (err, token) => {
+      if(err) throw err;
+      let body = "grant_type=refresh_token&refresh_token=" + token;
+      axios.post('https://www.reddit.com/api/v1/access_token', body).then(newToken => {
+        storage.set('refresh', newToken);
+        res.redirect('/');
+      });
+    });
+  });
 
   e.get('*', (req, res) => {
   })
